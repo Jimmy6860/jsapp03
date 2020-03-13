@@ -12,26 +12,29 @@
   <body>
       <div class="container" style="max-width: 1280px;">
             <div class="row">
-                <nav class="navbar bg-primary text-white col">
-                    NavBar
+                <nav class="navbar bg-primary text-white col d-flex justify-content-between">
+                    <div>NavBar</div>
+                    <div>Points: 0000</div>
+                    <div class="text-center"><img class="avatar avatar-32 img-circle" src="photo.jpg"/></div>
                 </nav>
             </div>
             <div class="row d-flex justify-content-center mt-4">
                 <div class="col-md-5 bg-light m-2 p1">
-                    <div class="card-header">
+                    <div class="card-header bg-info text-white">
                         Create your task
                       </div>
                       <div class="card-body">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="todo-title" placeholder="Title">
-                                <textarea class="form-control mt-2" id="todo-textarea" placeholder="Description" rows="3"></textarea>
+                                <textarea class="form-control mt-2" id="todo-textarea" placeholder="Description" rows="5"></textarea>
                                 <div class="row mt-2 d-flex justify-content-around">
-                                    <select class="form-control col-4">
-                                        <option>Low</option>
-                                        <option>Middle</option>
-                                        <option>High</option>
+                                    <select class="form-control col-4 placeholder=Priority">
+                                        <option value="" hidden>Priority</option>
+                                        <option value="Low">Low</option>
+                                        <option value="Middle">Middle</option>
+                                        <option value="High">High</option>
                                     </select>
-                                    <button class="btn col-4 bg-primary text-white">add</button>
+                                    <button class="btn col-4 bg-info text-white">Add</button>
                                 </div>
                             </div>
                       </div>                  
