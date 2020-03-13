@@ -1,0 +1,11 @@
+.todo-item-low {
+    border-left:  solid 10px green;
+}
+
+.todo-item-middle {
+    border-left:  solid 10px orange;
+}
+
+.todo-item-high {
+    border-left:  solid 10px red;
+}

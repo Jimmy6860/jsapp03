@@ -12,13 +12,13 @@
   <body onload="fetchTodosData()">
       <div class="container" style="max-width: 1280px;">
             <div class="row">
-                <nav class="navbar bg-primary text-white col d-flex justify-content-between">
+                <nav class="navbar bg-primary text-white col justify-content-between">
                     <div>NavBar</div>
                     <div>Points: 0000</div>
                     <div class="text-center"><img class="avatar avatar-32 img-circle" src="photo.jpg"/></div>
                 </nav>
             </div>
-            <div class="row d-flex justify-content-center mt-4">
+            <div class="row justify-content-center mt-4">
                 <div class="col-md-5 bg-light m-2 p1">
                     <div class="card-header bg-info text-white">
                         Create your task
@@ -28,7 +28,7 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" id="todo-title" placeholder="Title">
                                 <textarea class="form-control mt-2" id="todo-description" placeholder="Description" rows="5"></textarea>
-                                <div class="row mt-2 d-flex justify-content-around">
+                                <div class="row mt-2 justify-content-around">
                                     <select class="form-control col-4 placeholder=Priority" id="todo-priority">
                                         <option value="" hidden>Priority</option>
                                         <option value="Low">Low</option>
@@ -41,7 +41,10 @@
                         </form>
                       </div>                  
                 </div>
-                <div class="col-md-5 bg-light m-2 p1 todos-overview">                   
+                <div class="col-md-5 row bg-light m-2 p1 pb-4 justify-content-center" id="todos-overview">
+                  <div class="col-11 card bg-white mt-4 justify-content-center todo-item-low" style="height: 50px;">
+                    Hello World
+                  </div> 
                 </div>
             </div>
       </div>
