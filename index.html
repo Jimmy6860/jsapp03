@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
-  <body>
+  <body onload="fetchTodosData()">
       <div class="container" style="max-width: 1280px;">
             <div class="row">
                 <nav class="navbar bg-primary text-white col d-flex justify-content-between">
@@ -24,22 +24,24 @@
                         Create your task
                       </div>
                       <div class="card-body">
+                        <form id="todoInputForm">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="todo-title" placeholder="Title">
-                                <textarea class="form-control mt-2" id="todo-textarea" placeholder="Description" rows="5"></textarea>
+                                <textarea class="form-control mt-2" id="todo-description" placeholder="Description" rows="5"></textarea>
                                 <div class="row mt-2 d-flex justify-content-around">
-                                    <select class="form-control col-4 placeholder=Priority">
+                                    <select class="form-control col-4 placeholder=Priority" id="todo-priority">
                                         <option value="" hidden>Priority</option>
                                         <option value="Low">Low</option>
                                         <option value="Middle">Middle</option>
                                         <option value="High">High</option>
                                     </select>
-                                    <button class="btn col-4 bg-info text-white">Add</button>
+                                    <button class="btn col-4 bg-info text-white" type="submit">Add</button>
                                 </div>
                             </div>
+                        </form>
                       </div>                  
                 </div>
-                <div class="col-md-5 bg-light m-2 p1">                   
+                <div class="col-md-5 bg-light m-2 p1 todos-overview">                   
                 </div>
             </div>
       </div>
