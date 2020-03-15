@@ -1,4 +1,5 @@
 document.getElementById('todoInputForm').addEventListener('submit', addTodo);
+let points = 0;
 
 function addTodo(e) {
     let todoId = chance.guid();
@@ -31,11 +32,32 @@ function addTodo(e) {
     e.preventDefault();
 }
 
+function todoDone(id, prio) {
+    let todos = JSON.parse(localStorage.getItem('todos'));
+
+    for(let i = 0; i < todos.length; i++) {
+        if(todos[i].id === id) {
+            todos.splice(i, 1)
+        }
+    }
+
+    if(prio === 'Low') {
+        points += 30
+    } else if (prio === 'Middle') {
+        points += 50
+    } else if (prio === 'High') {
+        points += 100
+    }
+
+    localStorage.setItem('todos', JSON.stringify(todos))
+    document.getElementById('score').innerHTML = `Points: ${points}`
+    fetchTodosData()
+} 
+
 function fetchTodosData() {
     let todos = JSON.parse(localStorage.getItem('todos'))
     let todosList = document.getElementById('todos-overview');
-    
-    console.log(todos, todos.length)
+    console.log(todos)
     todosList.innerHTML = '';
 
     for (let i = todos.length-1 ; i >= 0; i--) {
@@ -55,9 +77,15 @@ function fetchTodosData() {
             }
         }
         
-        todosList.innerHTML += `<div class="col-11 card bg-white mt-4 justify-content-center ${setPriority()}" style="height: 50px;">
+        todosList.innerHTML += `<div class="col-11 card bg-white mt-4 ml-4 row justify-content-center ${setPriority()}" data-toggle="collapse" data-target="#i${id}" aria-expanded="false" aria-controls="i${id}" style="height: 50px;">
                                     ${title}
-                                </div> `
+                                    <button class="btn btn-success btn-sm col-2 align-self-end" onclick="todoDone('${id}', '${priority}')">Done</button>
+                                </div> 
+                                <div class="collapse mt-1" id="i${id}">
+                                    <div class="card card-body">
+                                        ${desc}
+                                    </div>
+                                </div>
+                                `
     }
-
 }
